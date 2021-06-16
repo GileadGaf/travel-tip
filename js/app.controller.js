@@ -35,8 +35,12 @@ function onInit() {
 function renderLocs() {
     locService.getLocs().then(locs => {
         var strHtml = locs.map(loc => {
+            // <li><a href="${getLink(loc)}">${loc.name} </a>  </li>
             return `
-            <li><a href="${getLink(loc)}">${loc.name} </a>  </li>
+            <li>${loc.name}
+            <button>Delete</button>
+            <button>GoTo</button>
+            </li>
             `
         }).join('');
         var elLocs = document.querySelector('.loc-info');
@@ -91,8 +95,8 @@ function onSearchAddress(ev) {
 }
 
 function onCopyLink() {
-    // var link = 'https://gileadgaf.github.io/travel-tip/?'
-    // navigator.clipboard.writeText('https://www.google.com')
-    //     .then(() => { alert('Copy successful'); })
-    //     .catch((error) => { alert(`Copy failed! ${error}`); });
+    var link = 'https://gileadgaf.github.io/travel-tip/?'
+    navigator.clipboard.writeText('https://www.google.com')
+        .then(() => { alert('Copy successful'); })
+        .catch((error) => { alert(`Copy failed! ${error}`); });
 }

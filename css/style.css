@@ -123,6 +123,10 @@ footer {
 .loc-info {
     grid-area: loc-info;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
 }
 
 
