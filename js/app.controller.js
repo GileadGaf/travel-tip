@@ -1,6 +1,6 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
-
+import { geocodeService } from './services/geocode.service.js'
 window.onload = onInit;
 // window.onAddMarker = onAddMarker;
 // window.onPanTo = onPanTo;
