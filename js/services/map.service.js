@@ -17,24 +17,25 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             gMap = new google.maps.Map(
                 document.querySelector('#map'), {
                     center: { lat, lng },
-                    zoom: 15
+                    zoom: 16
                 })
             console.log('Map!', gMap);
         })
 }
 
-function addMarker(loc) {
+function addMarker(loc, title) {
     var marker = new google.maps.Marker({
         position: loc,
         map: gMap,
-        title: 'Hello World!'
+        title
     });
     return marker;
 }
 
-function panTo(lat, lng) {
+function panTo(lat, lng, title) {
     var laLatLng = new google.maps.LatLng(lat, lng);
     gMap.panTo(laLatLng);
+    addMarker(laLatLng, title);
 }
 
 
@@ -57,8 +58,12 @@ function bindMapClick() {
     gMap.addListener('click', function(ev) {
         const pos = ev.latLng.toJSON();
         var locName = prompt('Give this location a name');
-        if (locName)
-            locService.addLoc(locName, pos);
+        if (locName) {
+            locService.addLoc(locName, pos)
+
+        }
+
+
     });
 
 }

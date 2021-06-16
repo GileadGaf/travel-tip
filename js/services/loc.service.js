@@ -10,7 +10,10 @@ export const locService = {
 const LOCS_CACHE_KEY = 'locsCache';
 
 
-var locs;
+var locs = [
+    { id: 1, name: 'Greatplace', lat: 32.047104, lng: 34.832384, weather: null, createdAt: Date.now() },
+    { id: 2, name: 'Neveragain', lat: 32.047201, lng: 34.832581, weather: null, createdAt: Date.now() }
+]
 
 function getLocs() {
 
@@ -18,11 +21,6 @@ function getLocs() {
     if (locs && locs.length) {
         return Promise.resolve(locs);
     }
-    locs = [
-        { id: 1, name: 'Greatplace', lat: 32.047104, lng: 34.832384, weather: null, createdAt: Date.now() },
-        { id: 2, name: 'Neveragain', lat: 32.047201, lng: 34.832581, weather: null, createdAt: Date.now() }
-    ]
-
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(locs);
