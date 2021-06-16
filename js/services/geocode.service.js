@@ -18,7 +18,7 @@ function getAddressByPos(pos) {
     var { lat, lng } = pos;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}`;
     return axios.get(url)
-        .then(res => console.log(res.data.results[0]['formatted_address']));
+        .then(res => res.data.results[0]['formatted_address']);
 
 
 }

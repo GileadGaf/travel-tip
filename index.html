@@ -20,16 +20,16 @@
 
         <div class="main">
 
-            <div class="loc-info">
-                <h2>
+            <ul class="loc-info">
+                <!-- <h2>
                     <i class="fas fa-map-marker"></i> Location</h2>
                 <p>Address:
                     <span class="address bold-text"></span>
                 </p>
                 <p>Geo:
                     <span class="geo"></span>
-                </p>
-            </div>
+                </p> -->
+            </ul>
 
             <div class="weather-info">
                 <h2>
@@ -46,8 +46,8 @@
 
             <div class="map-info">
                 <div class="controls">
-                    <form autocomplete="on">
-                        <input class="search-input" autofocus placeholder="Search Address.." type="text">
+                    <form autocomplete="on" onsubmit="onSearchAddress(event)">
+                        <input class="search-input" name="searched-address" autofocus placeholder="Search Address.." type="text">
                         <button class="btn" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
@@ -66,7 +66,7 @@
             <p class="bold-text"> Share this map: </p>
 
             <input class="url-input" type="text" />
-            <button class="btn btn-copy-url">Copy link</button>
+            <button class="btn btn-copy-url" onclick="onCopyLink()">Copy link</button>
         </footer>
     </div>
 
