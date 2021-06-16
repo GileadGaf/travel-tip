@@ -1,8 +1,11 @@
+import { locService } from './loc.service.js'
+
 export const mapService = {
     initMap,
     addMarker,
-    panTo
-}
+    panTo,
+    bindMapClick
+};
 
 var gMap;
 
@@ -48,4 +51,14 @@ function _connectGoogleApi() {
         elGoogleApi.onload = resolve;
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
+}
+
+function bindMapClick() {
+    gMap.addListener('click', function(ev) {
+        const pos = ev.latLng.toJSON();
+        var locName = prompt('Give this location a name');
+        if (locName)
+            locService.addLoc(locName, pos);
+    });
+
 }
